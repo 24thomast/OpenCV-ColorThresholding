@@ -1,1 +1,1 @@
-# OpenCVColorThresholding
+# OpenCV Color Thresholding Tool
