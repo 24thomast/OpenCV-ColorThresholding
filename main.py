@@ -3,11 +3,10 @@ import numpy as np
 import csv
 from datetime import datetime
 
-
 def nothing(x):
     pass
 
-area_max = 100000
+area_max = 10000
 
 csv_empty = False
 
@@ -90,7 +89,8 @@ while (1):
     cv2.imshow('Frame', output)
 
     key = cv2.waitKey(1) & 0xff
-    if key == ord('q'):
+    
+    if key == ord('q'): # Quit Program
         if save == 1:
             now = datetime.now()
             date = now.strftime("%m/%d/%Y")
@@ -103,7 +103,8 @@ while (1):
         print([h_max, s_max, v_max])
         print(area_threshold)
         break
-    elif key == ord('r'):
+        
+    elif key == ord('r'): # Reset to Original Threshold 
         cv2.setTrackbarPos('H Min', 'Control', 0)
         cv2.setTrackbarPos('H Max', 'Control', 180)
         cv2.setTrackbarPos('S Min', 'Control', 0)
@@ -113,7 +114,8 @@ while (1):
         cv2.setTrackbarPos('Area', 'Control', 2000)
         cv2.setTrackbarPos('Area On', 'Control', 0)
         cv2.setTrackbarPos('Auto Save', 'Control', 0)
-    elif key == ord('t'):
+        
+    elif key == ord('t'): # Reset to Saved Threshold
         cv2.setTrackbarPos('H Min', 'Control', int(low_default[0]))
         cv2.setTrackbarPos('H Max', 'Control', int(high_default[0]))
         cv2.setTrackbarPos('S Min', 'Control', int(low_default[1]))
@@ -123,7 +125,8 @@ while (1):
         cv2.setTrackbarPos('Area', 'Control', 2000)
         cv2.setTrackbarPos('Area On', 'Control', 0)
         cv2.setTrackbarPos('Auto Save', 'Control', 0)
-    elif key == ord('s'):
+        
+    elif key == ord('s'): # Save Threshold
         low_default = [h_min, s_min, v_min]
         high_default = [h_max, s_max, v_max]
         area_threshold_default = read_data[-1][8]
@@ -134,7 +137,8 @@ while (1):
         with open('colors.csv', 'a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(data)
-    elif key == ord('p'):
+            
+    elif key == ord('p'): # Print Threshold
         print([h_min, s_min, v_min])
         print([h_max, s_max, v_max])
         print(area_threshold)
