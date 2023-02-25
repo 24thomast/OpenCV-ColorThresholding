@@ -36,6 +36,9 @@ if csv_empty:
         data = [date, time, low_default[0], low_default[1], low_default[2], high_default[0], high_default[1], high_default[2], area_threshold_default]
         writer = csv.writer(file)
         writer.writerow(data)
+        
+if int(area_threshold_default) > area_max:
+    area_max = int(area_threshold_default)
 
 capture = cv2.VideoCapture(0)
 
