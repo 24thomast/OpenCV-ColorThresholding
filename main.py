@@ -125,7 +125,7 @@ while (1):
         cv2.setTrackbarPos('S Max', 'Control', int(high_default[1]))
         cv2.setTrackbarPos('V Min', 'Control', int(low_default[2]))
         cv2.setTrackbarPos('V Max', 'Control', int(high_default[2]))
-        cv2.setTrackbarPos('Area', 'Control', 2000)
+        cv2.setTrackbarPos('Area', 'Control', area_threshold_default)
         cv2.setTrackbarPos('Area On', 'Control', 0)
         cv2.setTrackbarPos('Auto Save', 'Control', 0)
         
